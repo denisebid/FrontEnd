@@ -1,41 +1,24 @@
-// function nombre(theObject) {
-  //  theObject.make = 'vacio';
-    
-  //}
-  
-//  [parcial]var myperson = { nombre: 'vacio', apellido: 'vacio', email: 'vacio', carta: 'vacio' };
-//  var x, y, z, w;
-  
-//  x = myperson.nombre; // x obtiene el valor "Honda"
-  
- // myFunc(myperson);
- // y = myperson.nombre; // y obtiene el valor "Toyota"
-//                  // (la propiedad make fue cambiada por la función)//
+    //Va a buscar al html el elemento con la clase formulario
+    const $form = document.querySelector(".formulario")
+    console.log($formulario)
 
+    //Le agrega al formulario una escucha de eventos y cuando sucede el evento, llama a la funcion handleSubmit 
+    $form.addEventListener('submit', handleSubmit)
 
-//function nombre(nombre){
-    //nombre.make="Laura"
-    //console.log("Gracias " + nombre()+ " por ser parte de Carta a un Abuelo")
-//}
+    //define la funcion handleSubmit con ejecucion asincronica (una cosa a la vez y en paralelo)
+    async function handleSubmit(event) {
+        event.preventDefault() // Evita que el navegador haga la logica default 
+        const form = new FormData(this) //Vuelve a reconstruir el objeto FormData (clave/valor). This=formulario
+        const response = await fetch(this.action, {
+            method: this.method,
+            body: form,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }) // Aca busca la accion y el metodo del html definido en el form, como cuerpo define los datos del formulario y como header pone que la respuesta sea en formato json
+        if (response.ok) {
+            this.reset()
+            alert('Gracias por ser parte de Carta a un Abuelo')
+        }// Si se envia el formulario sale la alerta y se limpia el formulario.
 
-//Parte 1. doy formato a los detalles de entrada  en una lista para que pueda agregar los datos en excel facilmente.
-const info = [];
-function display(e){e.preventDefault();
-var nombre = document.getElementById("nombre").ariaValueMax;
-var apellido = document.getElementById("apellido").value;
-var email = document.getElementById("email").email;
-var contacto = document.getElementById("contacto").textContent;
-var data = [nombre, apellido, email, contacto]; info.push(data); 
-var text = document.createElement("h2");
-text.innerHTML=info;
-document.body.appendChild(text);
-console.log(info);
-
-//obtengo el archivo de excel y agrego los datos en una fila.
-var Excel = require('exceljs');
-var workbook = new Excel.Workbook();
-workbook.xlsx.readFile("AppendRow.xlsx").then(function(){worksheet = workbook.getWorksheet("Main") worksheet.addRows(data);
-workbook.xlsx.writeFile("AppendRow.xlsx")});
-}
-
-
+    }
