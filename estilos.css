@@ -1,0 +1,188 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  color: white
+}
+
+/*style the top of the page*/
+.top {
+  padding: 1px;
+  text-align: center;
+  background: #e9bbb5;
+  color: white;
+  font-size: 20px;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: #AAD9CD;
+  color: white;
+  font-size: 20px;
+
+}
+
+/* Style the top navigation bar */
+.navbar {
+  display: flex;
+  background-color: #AAD9CD;
+  overflow: hidden;
+
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+
+
+
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #e9bbb5;
+  color: white;
+
+}
+
+/* Column container */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #aad9cd;
+}
+
+/* Create three unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 50%;
+  background-color: #aad9cd;
+  padding: 20px;
+
+}
+
+/* Main column */
+.main {
+  flex: 50%;
+  background-color: #aad9cd;
+  padding: 20px;
+}
+
+/*sección carta*/
+.data {
+  flex: 50%;
+  padding: 20px;
+  text-align: center;
+  background: #AAD9CD;
+  display: flex;
+}
+
+.write {
+  flex: 50%;
+  padding: 10px;
+  text-align: center;
+  background: #AAD9CD;
+  display: flex;
+  
+}
+
+
+/* Form */
+input[type=text],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #aad9cd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=email],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #aad9cd;
+  border-radius: 4px;
+  box-sizing: border-box;
+ }
+
+input[type=submit] {
+  width: 100%;
+  background-color: #e9bbb5;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #e9bbb5;
+  color: white;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+div {
+  border-radius: 5px;
+  background-color: #aad9cd;
+  padding: 20px;
+}
+
+textarea{
+  width: 100%;
+  height: 250px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #aad9cd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+
+  
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #aad9cd;
+}
+
+
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+
+  .flex-container,
+  .navbar {
+    flex-direction: column;
+  }
+}
+/* If screen size is more than 600px wide, set the font-size of <div> to 80px */
+@media screen and (min-width: 600px) {
+  div.example {
+    font-size: 80px;
+  }
+}
+
+/* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}

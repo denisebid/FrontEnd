@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escribí tu Carta</title>
+    <link rel="stylesheet" href="./estilos.css">
+
+    <script href="./javascript.js"></script>
+</head>
+
+<body>
+    <!-- Note -->
+    <div class="top">
+        <h3>Bienvenido a Carta a un Abuelo</h3>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Palabras que nos hacen sonreir</h1>
+        <p>Escribí tu <b>carta</b></p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar" align="center">
+        <a href="index.html">Index</a>
+        <a href="actividades.html">Actividades</a>
+        <a href="redactar.html">Contactate con Nosotros</a>
+    </div>
+
+    <!-- The flexible grid (content) -->
+    <div class="flex-container">
+        <div class="side">
+            <a href="imagenes/redactar.jpg"><img border="0" src="imagenes/redactar.jpg" width="100%"></a>
+            <!---<div class="image" style="height:200px;" src=.imagenes/abuelo.jpg">Image</div>--->
+
+
+        </div>
+        <div class="main">
+            <h2>¡Qué bueno que te sumes al proyecto!</h2>
+            <p>En esta sección te invitamos a escribir su carta. Te compartimos algunas ideas sobre temas que podés
+                tocar:</p>
+            <p>contar sobre ustedes, su nombre, a que se dedican, que hacen en su tiempo libre. <br>
+                * Contar que cosas les gustan. <br>
+                * Compartir sueños. Contar alguna anécdota con sus abuelos.<br>
+                * Contar algún chiste / cuento corto. <br>
+                * Preguntar a los abuelos sobre ellos, sus vidas, q han hecho, de que trabajaron, que actividades
+                disfrutan.<br>
+                * Cualquier tema que se te ocurra! (siempre en un marco de respeto).</p>
+            <p>¡Bienvenido a Carta a un Abuelo! ¡Nuestros abuelos van a estar más que contentos de compartir con vos!
+            </p>
+            <p align="right">El equipo de Carta a un Abuelo</p>
+        </div>
+        <div class="data">
+            <div class="form">
+                <h2 class="write">Contanos sobre vos!</h2>
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre..."><br><br>
+                <label for="apellido">Apellido:</label>
+                <input type="text" name="apellido" id="apellido" placeholder="Tu apellido..."><br><br>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" placeholder="Tu email..."><br><br>
+                <label for="contacto">¿Te gustaría contactarte con un abuelo o una abuela?</label><br><br>
+                <select name="sexo" id="sexo">
+                    <option value="0"></option>
+                    <option value="a">Abuela</option>
+                    <option value="o">Abuelo</option>
+                    <option value="i">Que sea sorpresa!</option>
+                </select>
+                <br><br><br>
+            </div>
+
+        </div>
+        <div class="write">
+            <div class="text">
+                <h2 class="write">Ahora si... Escribí tu carta!</h2><br>
+
+
+                <textarea name="contacto" id="" cols="70" rows="15"></textarea>
+                <br><br><br>
+                <input type="submit" value="Enviar">
+                <!---<div class="button">Enviar</div>--->
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <h4>Derechos reservados equipo de Carta a un Abuelo</h4>
+    </div>
+
+</body>
+
+</html>
