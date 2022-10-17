@@ -7,18 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escribí tu Carta</title>
     <link rel="stylesheet" href="./estilos.css">
-
+    <script src="https://kit.fontawesome.com/e7d8d28480.js" crossorigin="anonymous"></script>
     <script href="./javascript.js"></script>
 </head>
 
-<body class="body">
+<body>
     <!-- Note -->
     <div class="top">
         <h3>Bienvenido a Carta a un Abuelo</h3>
     </div>
 
     <!-- Header -->
-    <div class="header">
+    <header>
         <h1>Palabras que nos hacen sonreir</h1>
         <p>Escribí tu <b>carta</b></p>
         <div class="logo">
@@ -26,17 +26,17 @@
         </div>
 
 
-    </div>
+    </header>
 
     <!-- Navigation Bar -->
-    <div class="navbar">
+    <navbar>
         <a href="index.html">Index</a>
         <a href="actividades.html">Actividades</a>
         <a href="redactar.html">Contactate con Nosotros</a>
-    </div>
+    </navbar>
 
     <!-- The flexible grid (content) -->
-    <div class="flex-container">
+    <flex-container>
         <div class="side">
             <a href="imagenes/redactar.jpg"><img border="0" src="imagenes/redactar.jpg" width="100%"></a>
             <!---<div class="image" style="height:200px;" src=.imagenes/abuelo.jpg">Image</div>--->
@@ -58,45 +58,104 @@
             </p>
             <h2 align="right">El equipo de Carta a un Abuelo</h2>
         </div>
-    </div>    
-    <form class="formulario">
-        <div class="data">
-            <div class="form">
-                <h2 class="write">Contanos sobre vos!</h2>
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Tu nombre..."><br><br>
-                <label for="apellido">Apellido:</label>
-                <input type="text" name="apellido" id="apellido" placeholder="Tu apellido..."><br><br>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Tu email..."><br><br>
-                <label for="contacto">¿Te gustaría contactarte con un abuelo o una abuela?</label><br><br>
+    </flex-container>
+    <form action="" class="formulario" id="formulario">
+
+        <!--Grupo nombre-->
+        <div class="formulario__grupo" id="grupo__nombre">
+            <label for="nombre" class="formulario__label">Nombre</label>
+            <div class="formulario__grupo-input">
+                <input type="text" name="nombre" class="formulario__input" id="nombre" placeholder="Tu nombre...">
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+
+        </div>
+
+        <!--Grupo apellido-->
+        <div class="formulario__grupo" id="grupo__apellido">
+            <label for="apellido" class="formulario__label">Apellido</label>
+            <div class="formulario__grupo-input">
+                <input type="text" name="apellido" class="formulario__input" id="apellido" placeholder="Tu apellido...">
+
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+
+        </div>
+
+        <!--Grupo email-->
+        <div class="formulario__grupo" id="grupo__email">
+            <label for="email" class="formulario__label">Email</label>
+            <div class="formulario__grupo-input">
+                <input type="text" name="email" class="formulario__input" id="email" placeholder="Tu email...">
+
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+
+        </div>
+
+        <!--Grupo elección sexo abuelo-->
+        <div class="formulario__grupo" id="grupo__contacto">
+            <label for="contacto" class="formulario__label">¿Te gustaría contactarte con un abuelo o una abuela?</label>
+            <div class="formulario__grupo-input">
                 <select name="sexo" id="sexo">
                     <option value="0"></option>
                     <option value="a">Abuela</option>
                     <option value="o">Abuelo</option>
                     <option value="i">Que sea sorpresa!</option>
                 </select>
-                <br><br><br>
+
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
             </div>
+            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
 
         </div>
-        <div class="write">
+
+        <!--Grupo escribir carta-->
+        <div class="formulario__grupo formulario__grupo-texto>
             <div class="text">
-                <h2 class="write">Ahora si... Escribí tu carta!</h2><br>
-                <textarea name="contacto" id="" cols="80" rows="30"></textarea>
-                <br><br><br>
-                <button type="submit" value="Enviar">Enviar</button>
+                <h2 class="tag"><span>Ahora si... Escribí tu carta!</span></h2><br>
+                <textarea name="contacto" id="" cols="100" rows="30"></textarea>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+            </div>
+            <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button id=button type="submit" value="Enviar" class="formurlario__btn"><b>Enviar</b></button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado
+                    exitosamente!"</p>
             </div>
         </div>
+
+
+        <!-- Grupo: Terminos y Condiciones -->
+        <div class="formulario__grupo" id="grupo__terminos">
+            <label class="formulario__label">
+                <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
+                Acepto los Terminos y Condiciones
+            </label>
+        </div>
+
+
+        <!-- Grupo: Mensaje de error -->
+        <div class="formulario__mensaje" id="formulario__mensaje">
+            <p><i class="fas fa-triangle-exclamation"></i><b> Error:</b> Por favor rellene el formulario correctamente.
+            </p>
+        </div>
+
     </form>
-</div>
+    <a href="mailto:cartabuelo@gmail.com" id="correocarta"></a>
+    </div>
 
 
 
 
 </body>
 <!-- Footer -->
-<footer class="footer">
+<footer>
     <div class="footer">
         <h4>Derechos reservados equipo de Carta a un Abuelo</h4>
     </div>
