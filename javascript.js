@@ -1,24 +1,83 @@
-    //Va a buscar al html el elemento con la clase formulario
-    const $form = document.querySelector(".formulario")
-    console.log($formulario)
+const formulario = document.getElementById('formulario');
+const inputs = document.querySelectorAll('#formulario input');
 
-    //Le agrega al formulario una escucha de eventos y cuando sucede el evento, llama a la funcion handleSubmit 
-    $form.addEventListener('submit', handleSubmit)
+const expresiones = {
+	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	ecorreo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	escribe: /^\d{7,14}$/, // 7 a 14 numeros.
+	elige: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
+	
+}
 
-    //define la funcion handleSubmit con ejecucion asincronica (una cosa a la vez y en paralelo)
-    async function handleSubmit(event) {
-        event.preventDefault() // Evita que el navegador haga la logica default 
-        const form = new FormData(this) //Vuelve a reconstruir el objeto FormData (clave/valor). This=formulario
-        const response = await fetch(this.action, {
-            method: this.method,
-            body: form,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }) // Aca busca la accion y el metodo del html definido en el form, como cuerpo define los datos del formulario y como header pone que la respuesta sea en formato json
-        if (response.ok) {
-            this.reset()
-            alert('Gracias por ser parte de Carta a un Abuelo')
-        }// Si se envia el formulario sale la alerta y se limpia el formulario.
+const campos = {
+	nombre: false,
+	apellido: false,
+	correo: false,
+	escribe: false,
+	elige:false
+}
 
-    }
+const validarFormulario = (e) => {
+	switch (e.target.name) {
+		case "apellido":
+			validarCampo(expresiones.apellido, e.target, 'apellido');
+		break;
+		case "nombre":
+			validarCampo(expresiones.nombre, e.target, 'nombre');
+		break;
+		case "correo":
+			validarCampo(expresiones.correo, e.target, 'correo');
+		break;
+		case "elige":
+			validarCampo(expresiones.elige, e.target, 'elige');
+		break;
+		case "escribe":
+			validarCampo(expresiones.escribe, e.target, 'escribe');
+		break;
+	}
+}
+
+const validarCampo = (expresion, input, campo) => {
+	if(expresion.test(input.value)){
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+		campos[campo] = true;
+	} else {
+		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
+		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
+		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+		campos[campo] = false;
+	}
+}
+
+inputs.forEach((input) => {
+	input.addEventListener('keyup', validarFormulario);
+	input.addEventListener('blur', validarFormulario);
+});
+
+formulario.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	const terminos = document.getElementById('terminos');
+	if(campos.nombre && campos.apellido && campos.corero && campos.elige && campos.escribe && terminos.checked ){
+		formulario.reset();
+
+		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+		setTimeout(() => {
+			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+		}, 5000);
+
+		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+			icono.classList.remove('formulario__grupo-correcto');
+		});
+	} else {
+		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+	}
+})
+

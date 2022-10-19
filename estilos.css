@@ -40,6 +40,7 @@ navbar a {
   color: white;
   padding: 14px 20px;
   text-decoration: none;
+  font-size: 20px;
 }
 
 /* Change color on hover */
@@ -50,27 +51,33 @@ navbar a:hover {
 }
 
 /* Container */
-flex-container {
+.flex-container {
   display: flex;
   flex-wrap: wrap;
   background-color: #aad9cd;
 }
 
-/* Create three unequal columns that sits next to each other */
+.flex-container p {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
 /* columna izquierda, imagen */
 .side {
-  flex: 50%;
+  flex: 40%;
   background-color: #aad9cd;
   padding: 20px;
 
 }
 
 /* columna principal */
-.main {
-  flex: 50%;
+.principal {
+  flex: 40%;
   background-color: #aad9cd;
   padding: 20px;
-  text-align: left;
 }
 
 /*Formulario*/
@@ -80,6 +87,7 @@ flex-container {
   gap: 20px;
   flex-wrap: wrap;
   background-color: #aad9cd;
+  padding: 20px;
 }
 
 .formulario__label {
@@ -87,6 +95,7 @@ flex-container {
   font-weight: 700;
   padding: 10px;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .formulario__grupo-input {
@@ -126,7 +135,7 @@ flex-container {
   right: 10px;
   bottom: 15px;
   z-index: 100;
-  font-size: :16px;
+  font-size: 16px;
   opacity: 0;
 }
 
@@ -135,10 +144,13 @@ flex-container {
 
 }
 
-/*no me esta funcionando esto*/
-.formulario__grupo-terminos .formulario__grupo-mensaje .formulario__grupo-btn-enviar .formulario__grupo-texto {
+#grupo__carta,
+#grupo__terminos,
+#formulario__grupo-btn-enviar,
+#formulario__mensaje {
   grid-column: span 2;
 }
+
 
 .formulario__mensaje {
   height: 45px;
@@ -146,84 +158,62 @@ flex-container {
   background: #f66060;
   padding: 0 15px;
   border-radius: 3px;
-  display:none;
+  display: none;
 }
 
 .formulario__mensaje p {
   margin: 0;
 }
 
-.formulario__mensaje-activo{
-  display:block;
-}
-
-.formulario__grupo-btn-enviar {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.formulario__btn {
-	height: 45px;
-	line-height: 45px;
-	width: 30%;
-	background: #000;
-	color: #fff;
-	font-weight: bold;
-	border: none;
-	border-radius: 3px;
-	cursor: pointer;
-	transition: .1s ease all;
+.formulario__mensaje-activo {
+  display: block;
 }
 
 .formulario__btn:hover {
-	box-shadow: 3px 0px 30px rgba(163,163,163, 1);
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
 }
 
 .formulario__mensaje-exito {
-	font-size: 14px;
-	color: #119200;
-	display: none;
+  font-size: 14px;
+  color: #119200;
+  display: none;
 }
 
 .formulario__mensaje-exito-activo {
-	display: block;
+  display: block;
 }
 
 /* ----- -----  Estilos para Validacion ----- ----- */
 .formulario__grupo-correcto .formulario__validacion-estado {
-	color: #1ed12d;
-	opacity: 1;
+  color: #1ed12d;
+  opacity: 1;
 }
 
 .formulario__grupo-incorrecto .formulario__label {
-	color: #bb2929;
+  color: #bb2929;
 }
 
 .formulario__grupo-incorrecto .formulario__validacion-estado {
-	color: #bb2929;
-	opacity: 1;
+  color: #bb2929;
+  opacity: 1;
 }
 
 .formulario__grupo-incorrecto .formulario__input {
-	border: 3px solid #bb2929;
+  border: 3px solid #bb2929;
 }
 
 /*escribir la carta*/
-.grupo__write {
-  flex: 50%;
+.grupo__carta {
+  flex: 100%;
   padding: 10px;
   text-align: center;
   background: #AAD9CD;
   display: flex;
 
 }
-.tag{
-  text-align: center;
-}
 
 
-/* Form */
+/* Formulario */
 input[type=text],
 select {
   width: 100%;
@@ -256,7 +246,7 @@ button[type=submit] {
   border-radius: 4px;
   cursor: pointer;
   display: inline-block;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 input[type=submit]:hover {
@@ -265,11 +255,6 @@ input[type=submit]:hover {
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-div {
-  border-radius: 5px;
-  background-color: #aad9cd;
-  padding: 20px;
-}
 
 textarea {
   width: 100%;
@@ -282,8 +267,6 @@ textarea {
   box-sizing: border-box;
   resize: both;
 }
-
-
 
 
 /* Footer */
@@ -300,40 +283,28 @@ footer {
 
   .flex-container,
   .navbar,
-  .formulario {
+  .side,
+  .principal {
     flex-direction: column;
   }
-}
 
-/* If screen size is more than 600px wide, set the font-size of <div> to 80px */
-@media screen and (min-width: 600px) {
-  div.example {
-    font-size: 80px;
+  .formulario {
+    grid-template-columns: 1fr;
   }
-}
 
-/* If screen size is 600px wide, or less, set the font-size of <div> to 30px */
-@media screen and (max-width: 600px) {
-  div.example {
-    font-size: 30px;
+  #grupo__carta,
+  #grupo__terminos,
+  #formulario__mensaje,
+  #grupo__elige,
+  #grupo__correo,
+  #grupo__apellido,
+  #grupo_nombre {
+    grid-column: 1;
   }
+
+  .formulario__btn {
+    width: 100%;
+    cursor: pointer
+  }
+
 }
-/* ----- -----  Mediaqueries ----- ----- */
-@media screen and (max-width: 800px) {
-	.formulario {
-		grid-template-columns: 1fr;
-	}
-
-	.formulario__grupo-terminos, 
-	.formulario__mensaje,
-	.formulario__grupo-btn-enviar {
-		grid-column: 1;
-	}
-
-	.formulario__btn {
-		width: 100%;
-	}
-}
-/*sección carta*/
-
-
