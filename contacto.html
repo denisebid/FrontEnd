@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carta</title>
-    <!--<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">-->
-    <!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">-->
+    <title>Contacto</title>
     <link rel="stylesheet" href="estilos.css">
     <link rel="icon" href="./imagenes/icono/carta-de-amor.png">
     <script defer src="javascript.js"></script>
@@ -14,14 +13,18 @@
 
 </head>
 
+
 <body>
+    <!-- top 
+    <div class="top">
+        <h3>Bienvenido a Carta a un Abuelo</h3>
+    </div>-->
 
     <!-- Header -->
     <header id="header">
         <img class="logo" src="./assets/" />
         <h1 class="titulo">Carta a un Abuelo</h1>
     </header>
-
     <menu>
         <nav class="navbar-container">
             <ul class="listul">
@@ -33,7 +36,7 @@
                         <span class="text">Inicio</span>
                     </a>
                 </li>
-                <li class="list active">
+                <li class="list">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="create-outline"></ion-icon>
@@ -49,7 +52,7 @@
                         <span class="text">Actividades</span>
                     </a>
                 </li>
-                <li class="list">
+                <li class="list active">
                     <a href="#">
                         <span class="icon">
                             <ion-icon name="call-outline"></ion-icon>
@@ -61,36 +64,40 @@
             </ul>
         </nav>
     </menu>
-
+    <!-- Navigation Bar -->
 
 
     <!-- flex container -->
     <div class="flex-container">
         <div class="side">
-            <a href="imagenes/redactar.jpg"><img border="0" src="imagenes/redactar.jpg" width="100%" ,
+            <a href="imagenes/contactos.jpg"><img border="0" src="imagenes/contactos.jpg" width="100%" ,
                     height="auto"></a>
             <!---<div class="image" style="height:200px;" src=.imagenes/abuelo.jpg">Image</div>--->
         </div>
         <div class="principal">
-            <h2>¡Qué bueno que te sumes al proyecto!</h2>
-            <p>En esta sección te invitamos a escribir su carta. Te compartimos algunas ideas sobre temas que podés
-                tocar:</p>
-            <p>contar sobre ustedes, su nombre, a que se dedican, que hacen en su tiempo libre. <br>
-                * Contar que cosas les gustan. <br>
-                * Compartir sueños. Contar alguna anécdota con sus abuelos.<br>
-                * Contar algún chiste / cuento corto. <br>
-                * Preguntar a los abuelos sobre ellos, sus vidas, q han hecho, de que trabajaron, que actividades
-                disfrutan.<br>
-                * Cualquier tema que se te ocurra! (siempre en un marco de respeto).</p>
-            <p>¡Bienvenido a Carta a un Abuelo! ¡Nuestros abuelos van a estar más que contentos de compartir con vos!
+            <h2>¡Gracias por comunicarte con nosotros!</h2>
+            <p>Queremos que sepas que leemos todos los correos y estamos ansiosos por escuchar propuestas e ideas.</p>
+            <p>Si tenés alguna propuesta de actividades, no te olvides que por ahora sólo estamos presencialmente en:
+                <br>
+                * San Juan <br>
+                * Córdoba<br>
+                * Ciudad de Buenos Aires.<br><br>
+
+                Si sos parte de un geriátrico que quiere sumarse a la actividad, no olvides mencionar en qué lugar del
+                país
+                se encuentran.<br><br>
+
+                Los esperamos con todos sus comentarios, dentro del marco de respeto mutuo.
             </p>
+
             <h2 align="right">El equipo de Carta a un Abuelo</h2>
         </div>
     </div>
 
     <!-- Form -->
     <main>
-        <form class="formulario" id="formulario">
+        <form action="" method="post" name="formulario" class="formulario" id="formulario">
+            <!--action="https://formspree.io/f/mpznjblk" method="POST" (AGREGAR ESTO EN FORM PARA QUE POSTEE EN FORMSPREE)-->
 
             <!-- Grupo: Nombre -->
             <div class="formulario__grupo" id="grupo__nombre">
@@ -99,7 +106,7 @@
                 <input type="text" class="formulario__input" name="nombre" id="nombre"
                     placeholder="Ingresa tu nombre...">
 
-
+            </div>
 
             </div>
 
@@ -110,7 +117,7 @@
                 <input type="text" class="formulario__input" name="apellido" id="apellido"
                     placeholder="Ingresa tu apellido...">
 
-
+            </div>
 
             </div>
 
@@ -120,37 +127,35 @@
 
                 <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
 
-
+            </div>
 
             </div>
 
-            <!-- Grupo: elegir abuelo o abuela -->
-            <div class="formulario__grupo" id="grupo__abuelo">
-                <label for="select" class="formulario__label">¿Te gustaría contactarte con un abuelo o una
-                    abuela?</label>
-
+            <!-- Grupo: elegir -->
+            <div class="formulario__grupo" id="grupo__opcion">
+                <label for="select" class="formulario__label">¿Por qué motivo nos contactas?</label>
 
                 <select name="select" id="select" required="">
-                    <option value=""></option>
-                    <option value="a">Abuela</option>
-                    <option value="o">Abuelo</option>
-                    <option value="i">Que sea sorpresa!</option>
-
+                    <option value="0"></option>
+                    <option value="a">Propuesta</option>
+                    <option value="o">Consulta</option>
+                    <option value="i">Queja</option>
                 </select>
 
-
-
+            </div>
 
             </div>
+
 
             <!-- Grupo: Carta -->
             <div class="formulario__grupo" id="grupo__carta">
-                <label for="carta" class="formulario__label">Ahora si... Escribe tu carta!</label>
+                <label for="carta" class="formulario__label"></label>
 
                 <textarea name="escribe" id="" placeholder="Escribe aquí..."></textarea>
 
             </div>
 
+            </div>
 
 
             <!-- Grupo: Terminos y Condiciones -->
@@ -158,22 +163,74 @@
                 <label class="formulario__label">
                     <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos"><a
                         href="tyc.html">Acepto los Terminos y Condiciones</a>
+
                 </label>
             </div>
 
-            <div class="formulario__mensaje" id="formulario__mensaje">
-                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
-                    correctamente. </p>
-            </div>
+
 
             <div class="formulario__grupo formulario__grupo-btn-enviar">
                 <button type="submit" class="formulario__btn"><b>Enviar</b></button>
                 <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
             </div>
-
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="420" height="294" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=argentina&t=&z=3&ie=UTF8&iwloc=&output=embed"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
+                        href="https://123movies-to.org">123movies</a><br>
+                    <style>
+                        .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 294px;
+                            width: 420px;
+                        }
+                    </style><a href="https://www.embedgooglemap.net">map iframe</a>
+                    <style>
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 294px;
+                            width: 420px;
+                        }
+                    </style>
+                </div>
+            </div>
         </form>
 
+        <!--validar en js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/validate-js/2.0.1/validate.js"
+            integrity="sha-FtvY52LIDZ2/QHmDNay6PTYvLIRsZICHak0iJEAIBuM=" crossorigin="anonymous"></script>
+
+
     </main>
+
+
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
@@ -195,6 +252,5 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </footer>
-
 
 </html>

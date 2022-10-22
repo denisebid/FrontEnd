@@ -1,81 +1,71 @@
-const formulario = document.getElementById('formulario');
-const inputs = document.querySelectorAll('#formulario input');
-
-const expresiones = {
-	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	/*escribe: /^\d{7,14}$/, // 7 a 14 numeros.
-	abuelo: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.*/
-
+// Script para menu
+const list = document.querySelectorAll('.list');
+function activeLink() {
+	list.forEach((item) =>
+		item.classList.remove('active'));
+	this.classList.add('active');
 }
+list.forEach((item) =>
+	item.addEventListener('click', activeLink));
 
-const campos = {
-	nombre: false,
-	apellido: false,
-	correo: false,
+// fin script Menu
 
+// Script para header
 
-}
+var header = document.getElementById('header')
 
-const validarFormulario = (e) => {
-	switch (e.target.name) {
-		case "nombre":
-			validarCampo(expresiones.nombre, e.target, 'nombre');
-			break;
-		case "apellido":
-			validarCampo(expresiones.apellido, e.target, 'apellido');
-			break;
-		case "correo":
-			validarCampo(expresiones.correo, e.target, 'correo');
-			break;
-
-	};
-	return false;
-
-}
-
-
-const validarCampo = (expresion, input, campo) => {
-	if (expresion.test(input.value)) {
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-check-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-times-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
-		campos[campo] = true;
-	} else {
-		document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
-		document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
-		document.querySelector(`#grupo__${campo} i`).classList.add('fa-times-circle');
-		document.querySelector(`#grupo__${campo} i`).classList.remove('fa-check-circle');
-		document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
-		campos[campo] = false;
-	}
-}
-
-inputs.forEach((input) => {
-	input.addEventListener('keyup', validarFormulario);
-	input.addEventListener('blur', validarFormulario);
-});
-
-formulario.addEventListener('submit', (e) => {
-	e.preventDefault();
-
-	const terminos = document.getElementById('terminos');
-	if (campos.nombre && campos.apellido && campos.correo && terminos.checked) {
-		formulario.reset();
-
-		document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-		setTimeout(() => {
-			document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-		}, 5000);
-
-		document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-			icono.classList.remove('formulario__grupo-correcto');
-		});
-	} else {
-		document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+window.addEventListener('scroll', () => {
+	var scroll = window.scrollY
+	if (scroll > 10) {
+		header.style.backgroundColor = '#E9BBB5'
+		header.style.backgroundColor = '#E9BBB5'
 	}
 })
+
+
+//validar formulario
+
+window.addEventListener('load', () => {
+	let validadorFormulario = new FormValidator('formulario', [{
+		name: 'nombre',
+		display: 'Nombre',
+		rules: 'required|min_lenght[2]'
+	},
+
+	{
+		name: 'apellido',
+		display: 'Apellido',
+		rules: 'required|min_lenght[2]'
+	},
+
+	{
+		name: 'correo',
+		display: 'Correo',
+		rules: 'required|valid_email'
+	},
+
+	{
+		name: 'escribe',
+		display: 'Escribe tu carta',
+		rules: 'required|min_lenght[30]'
+
+	}], function (errores, evento) {
+		if (errores.lenght) {
+			let mensaje = '';
+
+			errores.forEach(function (campo, indice, arreglo) {
+				mensaje += '${campo.message} <br/>';
+			});
+
+			document.querySelector('#resultadoValidacion').innerHTML = mensaje;
+
+
+
+		}
+
+
+	});
+
+
+});
 
