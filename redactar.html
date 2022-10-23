@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta</title>
+    <!--<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">-->
+    <!--<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="./imagenes/icono/carta-de-amor.png">
+    <script defer src="javascript.js"></script>
+    <script defer src="https://kit.fontawesome.com/1978cb2604.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <img class="logo" src="./assets/" />
+        <h1 class="titulo">Carta a un Abuelo</h1>
+    </header>
+
+    <menu>
+        <nav class="navbar-container">
+            <ul class="listul">
+                <li class="list ">
+                    <a href="./index.html">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="text">Inicio</span>
+                    </a>
+                </li>
+                <li class="list active">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="create-outline"></ion-icon>
+                        </span>
+                        <span class="text">Redactar</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="./actividades.html">
+                        <span class="icon">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                        </span>
+                        <span class="text">Actividades</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="call-outline"></ion-icon>
+                        </span>
+                        <span class="text">Contacto</span>
+                    </a>
+                </li>
+                <div class="indicator"></div>
+            </ul>
+        </nav>
+    </menu>
+
+
+
+    <!-- flex container -->
+    <div class="flex-container">
+        <div class="side">
+            <a href="imagenes/redactar.jpg"><img border="0" src="imagenes/redactar.jpg" width="100%" ,
+                    height="auto"></a>
+            <!---<div class="image" style="height:200px;" src=.imagenes/abuelo.jpg">Image</div>--->
+        </div>
+        <div class="principal">
+            <h2>¡Qué bueno que te sumes al proyecto!</h2>
+            <p>En esta sección te invitamos a escribir su carta. Te compartimos algunas ideas sobre temas que podés
+                tocar:</p>
+            <p>contar sobre ustedes, su nombre, a que se dedican, que hacen en su tiempo libre. <br>
+                * Contar que cosas les gustan. <br>
+                * Compartir sueños. Contar alguna anécdota con sus abuelos.<br>
+                * Contar algún chiste / cuento corto. <br>
+                * Preguntar a los abuelos sobre ellos, sus vidas, q han hecho, de que trabajaron, que actividades
+                disfrutan.<br>
+                * Cualquier tema que se te ocurra! (siempre en un marco de respeto).</p>
+            <p>¡Bienvenido a Carta a un Abuelo! ¡Nuestros abuelos van a estar más que contentos de compartir con vos!
+            </p>
+            <h2 align="right">El equipo de Carta a un Abuelo</h2>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <main>
+        <form class="formulario" id="formulario">
+
+            <!-- Grupo: Nombre -->
+            <div class="formulario__grupo" id="grupo__nombre">
+                <label for="nombre" class="formulario__label">Nombre</label>
+
+                <input type="text" class="formulario__input" name="nombre" id="nombre"
+                    placeholder="Ingresa tu nombre...">
+
+
+
+            </div>
+
+            <!-- Grupo: Apellido -->
+            <div class="formulario__grupo" id="grupo__apellido">
+                <label for="apellido" class="formulario__label">Apellido</label>
+
+                <input type="text" class="formulario__input" name="apellido" id="apellido"
+                    placeholder="Ingresa tu apellido...">
+
+
+
+            </div>
+
+            <!-- Grupo: Correo Electronico -->
+            <div class="formulario__grupo" id="grupo__correo">
+                <label for="correo" class="formulario__label">Correo Electrónico</label>
+
+                <input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+
+
+
+            </div>
+
+            <!-- Grupo: elegir abuelo o abuela -->
+            <div class="formulario__grupo" id="grupo__abuelo">
+                <label for="select" class="formulario__label">¿Te gustaría contactarte con un abuelo o una
+                    abuela?</label>
+
+
+                <select name="select" id="select" required="">
+                    <option value=""></option>
+                    <option value="a">Abuela</option>
+                    <option value="o">Abuelo</option>
+                    <option value="i">Que sea sorpresa!</option>
+
+                </select>
+
+
+
+
+            </div>
+
+            <!-- Grupo: Carta -->
+            <div class="formulario__grupo" id="grupo__carta">
+                <label for="carta" class="formulario__label">Ahora si... Escribe tu carta!</label>
+
+                <textarea name="escribe" id="" placeholder="Escribe aquí..."></textarea>
+
+            </div>
+
+
+
+            <!-- Grupo: Terminos y Condiciones -->
+            <div class="formulario__grupo" id="grupo__terminos">
+                <label class="formulario__label">
+                    <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos"><a
+                        href="tyc.html">Acepto los Terminos y Condiciones</a>
+                </label>
+            </div>
+
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario
+                    correctamente. </p>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn"><b>Enviar</b></button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+            </div>
+
+        </form>
+
+    </main>
+
+
+</body>
+<footer>
+    <div class="container__logo">
+        <img type="logotipo" src="http://placehold.it/">
+    </div>
+    <div class="container__redes">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-instagram"></a>
+    </div>
+    <div class="container__copyright">
+        <p>Copyright &copy Hecho con Amor Equipo Cartas a un Abuelo</p>
+    </div>
+</footer>
+<script src="javascript.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</footer>
+
+
+</html>
